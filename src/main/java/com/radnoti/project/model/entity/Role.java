@@ -1,10 +1,7 @@
 package com.radnoti.project.model.entity;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -14,6 +11,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class Role implements Serializable {
 
     @Id
@@ -26,4 +24,7 @@ public class Role implements Serializable {
     @Column(name = "type")
     private String type;
 
+    public Role(Integer id) {
+        this.id = id;
+    }
 }

@@ -1,5 +1,6 @@
 package com.radnoti.project.model.entity;
 
+import com.radnoti.project.model.dto.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class User implements Serializable {
 
     @Id
@@ -24,23 +26,30 @@ public class User implements Serializable {
     //@Size(max = 255)
     @JoinColumn(name = "role", referencedColumnName = "id")
     @ManyToOne
-    private Role roleName;
+    private Role role;
+
     @Column(name = "username")
     private String userName;
+
     @Column(name = "email")
     private String email;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "registered_at")
     private ZonedDateTime registeredAt;
+
     @Column(name = "deleted")
     private Boolean isDeleted;
+
     @Column(name = "deleted_at")
     private ZonedDateTime deletedAt;
-
 
 }
