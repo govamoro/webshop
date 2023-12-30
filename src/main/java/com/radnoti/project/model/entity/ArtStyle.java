@@ -21,10 +21,10 @@ public class ArtStyle implements Serializable {
     private Integer id;
 
     @JoinColumn(name = "art", referencedColumnName = "id")
-    @ManyToMany
-    private Role artId;
+    //@ManyToMany
+    private Art artId;
 
     @JoinColumn(name = "style", referencedColumnName = "id")
-    @ManyToMany
-    private Role styleId;
+    //@ManyToMany
+    private Style styleId;
 }

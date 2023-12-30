@@ -21,10 +21,10 @@ public class ArtMaterial implements Serializable {
     private Integer id;
 
     @JoinColumn(name = "art", referencedColumnName = "id")
-    @ManyToMany
-    private Role artId;
+    //@ManyToMany
+    private Art artId;
 
     @JoinColumn(name = "material", referencedColumnName = "id")
-    @ManyToMany
-    private Role materialId;
+    //@ManyToMany
+    private Material materialId;
 }
