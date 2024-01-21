@@ -8,7 +8,6 @@ import com.radnoti.project.model.entity.User;
 import com.radnoti.project.repository.UserRepository;
 import com.radnoti.project.util.HashUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
@@ -28,12 +27,15 @@ public class UserService {
         if (userDto.getUserName() == null || userDto.getUserName().isBlank()
             || userDto.getEmail() == null || userDto.getEmail().isBlank()
             || userDto.getPassword() == null || userDto.getPassword().isBlank()
-            || userDto.getFirstName() == null || userDto.getFirstName().isBlank()
-            || userDto.getLastName() == null || userDto.getLastName().isBlank()){
+            /*|| userDto.getFirstName() == null || userDto.getFirstName().isBlank()
+            || userDto.getLastName() == null || userDto.getLastName().isBlank()*/){
             throw new RuntimeException("hibások az adatok");
         }
         if (userRepository.findByUsername(userDto.getUserName()).isPresent()){
             throw new RuntimeException("van már ilyen username");
+        }
+        if (userRepository.findByEmail(userDto.getEmail()).isPresent()) {
+            throw new RuntimeException("van már ilyen email");
         }
 
         ZonedDateTime now = ZonedDateTime.now();
